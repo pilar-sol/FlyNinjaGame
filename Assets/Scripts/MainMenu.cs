@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        // Replace "GameScene" with the actual name of your gameplay scene
         SceneManager.LoadScene("GameScene");
     }
 
