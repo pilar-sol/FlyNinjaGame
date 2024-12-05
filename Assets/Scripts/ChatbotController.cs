@@ -5,7 +5,8 @@ using TMPro;
 
 public class ChatbotController : MonoBehaviour
 {
-    public TMP_InputField playerInputField; // Reference to player input field
+    public TMP_InputField playerInputField; // TextMeshPro Input Field
+
     public TextMeshProUGUI chatbotResponseText; // Reference to chat output text
 
     void Start()
