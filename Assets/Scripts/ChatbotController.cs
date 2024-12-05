@@ -28,7 +28,7 @@ public class ChatbotController : MonoBehaviour
     string GetResponse(string message)
     {
         if (message.Contains("rules"))
-            return "Rules: Swat the flies to gain points, but don't swat the dog!";
+            return "Rules: Swat the flies to gain points, but don't swat the dog! Reach a score of 15 for the next level with a more challenges";
         else if (message.Contains("flies"))
             return "Flies give you 1 point each. Swat multiple flies at once for bonuses!";
         else if (message.Contains("dog"))
