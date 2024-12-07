@@ -38,7 +38,6 @@ public class FlySwatterController : MonoBehaviour
             Swat();
         }
     }
-
     void Swat()
     {
         // Detect colliders in the area of the swatter
@@ -49,27 +48,23 @@ public class FlySwatterController : MonoBehaviour
             if (hit.CompareTag("Fly"))
             {
                 // Call the fly's swat function
-                hit.GetComponent<Fly>().OnSwat();
+                hit.GetComponent<Fly>().OnSwat(); // Ensure Fly script has an OnSwat() method
+            }
+            else if (hit.CompareTag("Bird"))
+            {
+                // Handle bird swatting logic
+                Debug.Log("Bird swatted! Deducting a life.");
+                LifeManager lifeManager = FindObjectOfType<LifeManager>();
+                if (lifeManager != null)
+                {
+                    lifeManager.ReduceLife(hit.transform.position); // Deduct a life
+                }
+                Destroy(hit.gameObject); // Destroy the bird
             }
         }
     }
 }
-    /*
-    void Update()
-    {
-        // Move the swatter to follow the mouse position
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Mathf.Abs(mainCamera.transform.position.z); // Set Z to the distance from the camera
-        Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
-        transform.position = new Vector3(worldPos.x, worldPos.y, 0); // Set Z to 0 to keep swatter visible
-
-        // Detect left-click or tap input
-        if (Input.GetMouseButtonDown(0))
-        {
-            Swat();
-        }
-    }
-
+/*
     void Swat()
     {
         // Detect colliders in the area of the swatter

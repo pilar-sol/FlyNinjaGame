@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fly
   - Dog
+  - Swatter
+  - Bird
   layers:
   - Default
   - TransparentFX

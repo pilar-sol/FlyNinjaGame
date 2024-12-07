@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyMovement : MonoBehaviour
 {
-    public float speed = 2f;
+    private float speed =2f;
     private Vector2 direction;
 
     void Start()

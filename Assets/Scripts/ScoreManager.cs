@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
 
     void AdvanceToNextLevel()
     {
-        Debug.Log("Level Complete! Transitioning to Level 2...");
+        Debug.Log("Level Complete! Transitioning to Next Level...");
         SceneManager.LoadScene("Level2"); // Make sure your Level 2 scene is named "Level2"
     }
 }
