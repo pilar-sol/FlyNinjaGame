@@ -5,13 +5,11 @@ using TMPro;
 
 public class ChatbotController : MonoBehaviour
 {
-    public TMP_InputField playerInputField; // TextMeshPro Input Field
+    public TMP_InputField playerInputField; 
 
-    public TextMeshProUGUI chatbotResponseText; // Reference to chat output text
-
+    public TextMeshProUGUI chatbotResponseText; 
     void Start()
     {
-        // Initial welcome message
         DisplayMessage("Welcome to Fly Ninja! Ask me about the rules or gameplay.");
     }
 
@@ -28,7 +26,7 @@ public class ChatbotController : MonoBehaviour
     string GetResponse(string message)
     {
         if (message.Contains("rules"))
-            return "Rules: Swat the flies to gain points, but don't swat the dog! Reach a score of 15 for the next level with a more challenges";
+            return "Rules: Swat the flies to gain points, but don't swat the dog! Reach a score of 15 for the next level, then watch out for the birds or lose a life, finally swat 15 fly's within 10 seconds for victory";
         else if (message.Contains("flies"))
             return "Flies give you 1 point each. Swat multiple flies at once for bonuses!";
         else if (message.Contains("dog"))

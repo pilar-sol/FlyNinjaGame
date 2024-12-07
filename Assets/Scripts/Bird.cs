@@ -18,15 +18,3 @@ public class Bird : MonoBehaviour
     }
 }
 }
-/*
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Swatter")) // Check if the swatter hit the bird
-        {
-            Debug.Log("Bird hit!");
-            LifeManager lifeManager = FindObjectOfType<LifeManager>();
-            lifeManager.ReduceLife(transform.position); // Reduce life and show penalty
-            Destroy(gameObject); // Destroy the bird
-        }
-    }
-}*/

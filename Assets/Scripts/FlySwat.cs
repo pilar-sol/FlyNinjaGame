@@ -14,7 +14,6 @@ public class FlySwat : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // When the player clicks on the fly, swat it
         scoreManager.AddScore(scoreValue);
         Destroy(gameObject);
     }

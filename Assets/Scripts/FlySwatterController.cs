@@ -10,11 +10,9 @@ public class FlySwatterController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        // Calculate screen boundaries in world units
         float halfHeight = mainCamera.orthographicSize;
         float halfWidth = mainCamera.aspect * halfHeight;
 
-        // Set boundary limits based on camera size
         minX = -halfWidth;
         maxX = halfWidth;
         minY = -halfHeight;
@@ -22,17 +20,14 @@ public class FlySwatterController : MonoBehaviour
     }
     void Update()
     {
-        // Get the mouse position in world space
         Vector3 mousePos = Input.mousePosition;
         mousePos = mainCamera.ScreenToWorldPoint(mousePos);
-        mousePos.z = 0; // Keep Z position fixed
+        mousePos.z = 0; 
 
-        // Clamp the position to keep the swatter within screen bounds
         float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
         float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
         transform.position = new Vector3(clampedX, clampedY, 0);
 
-        // Detect left-click or tap input
         if (Input.GetMouseButtonDown(0))
         {
             Swat();
@@ -40,15 +35,13 @@ public class FlySwatterController : MonoBehaviour
     }
     void Swat()
     {
-        // Detect colliders in the area of the swatter
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size, 0);
 
         foreach (var hit in hits)
         {
             if (hit.CompareTag("Fly"))
             {
-                // Call the fly's swat function
-                hit.GetComponent<Fly>().OnSwat(); // Ensure Fly script has an OnSwat() method
+                hit.GetComponent<Fly>().OnSwat(); 
             }
             else if (hit.CompareTag("Bird"))
             {
@@ -64,20 +57,3 @@ public class FlySwatterController : MonoBehaviour
         }
     }
 }
-/*
-    void Swat()
-    {
-        // Detect colliders in the area of the swatter
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size, 0);
-
-        foreach (var hit in hits)
-        {
-            if (hit.CompareTag("Fly"))
-            {
-                // Call the fly's swat function
-                hit.GetComponent<Fly>().OnSwat();
-            }
-        }
-    }
-}
-*/

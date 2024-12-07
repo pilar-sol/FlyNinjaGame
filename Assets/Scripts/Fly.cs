@@ -8,13 +8,11 @@ public class Fly : MonoBehaviour
 
     void Start()
     {
-        // Locate the ScoreManager in the scene
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     public void OnSwat()
     {
-        // Add a point to the score
         scoreManager.AddScore(1);
 
         // Destroy the fly object

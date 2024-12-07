@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BirdSpawner : MonoBehaviour
 {
-    public GameObject birdPrefab; // Assign the Bird prefab
-    public float spawnInterval = 10f; // Time between bird spawns
-    public float birdSpeed = 3f; // Speed of the bird
-
+    public GameObject birdPrefab; 
+    public float spawnInterval = 10f; 
+    public float birdSpeed = 3f; 
     private float timer;
 
     void Update()
@@ -23,12 +22,10 @@ public class BirdSpawner : MonoBehaviour
 
     void SpawnBird()
     {
-        // Spawn the bird at a random vertical position off-screen
-        float yPosition = Random.Range(-3f, 3f); // Adjust range based on your scene
-        Vector3 spawnPosition = new Vector3(-10f, yPosition, 0); // Off-screen to the left
+        float yPosition = Random.Range(-3f, 3f); 
+        Vector3 spawnPosition = new Vector3(-10f, yPosition, 0); 
         GameObject bird = Instantiate(birdPrefab, spawnPosition, Quaternion.identity);
 
-        // Make the bird move across the screen
-        bird.GetComponent<Rigidbody2D>().velocity = new Vector2(birdSpeed, 0); // Move right
+        bird.GetComponent<Rigidbody2D>().velocity = new Vector2(birdSpeed, 0);
     }
 }

@@ -12,10 +12,9 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        // Quit the application
         Application.Quit();
         #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // Only for testing in the editor
+        UnityEditor.EditorApplication.isPlaying = false; 
         #endif
     }
 }
